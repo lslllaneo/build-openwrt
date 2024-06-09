@@ -52,7 +52,7 @@ jobs:
         echo "DEVICE_NAME=${DEVICE_NAME}" >> $GITHUB_ENV
 
     - name: Compile ${{ env.DEVICE_NAME }} firmware
-      run: cd lede && make -j$(nproc) defconfig download clean world
+      run: cd lede && make -j$(nproc) V=s defconfig download clean world
 
     - name: Upload firmware to workflow directory
       uses: actions/upload-artifact@main
